@@ -1,7 +1,8 @@
-import { Hono } from 'https://deno.land/x/hono@v3.11.8/mod.ts'
+import { serve } from "https://deno.land/std/http/server.ts";
+import { Hono } from "https://deno.land/x/hono/mod.ts";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello World!'))
+app.get("/", (c) => c.text("Hello! Hono!"));
 
-Deno.serve(app.fetch)
+serve(app.fetch, { port: 1993 });
